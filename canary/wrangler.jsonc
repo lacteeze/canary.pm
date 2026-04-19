@@ -1,0 +1,22 @@
+{
+  "$schema": "./node_modules/wrangler/config-schema.json",
+  "name": "canary",
+  "compatibility_date": "2026-04-19",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./src/lib/server/index.ts",
+  "assets": {
+    "not_found_handling": "single-page-application",
+    "run_worker_first": ["/api/*"]
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "canary-db",
+      "database_id": "<placeholder>",
+      "migrations_dir": "drizzle/migrations"
+    }
+  ],
+  // All env vars are in .dev.vars for local dev
+  // and set as secrets in production via `wrangler secret put`
+  "vars": {}
+}
