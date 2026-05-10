@@ -7,6 +7,7 @@ import {
 } from '../data.js';
 import { PipelineView } from './pipeline.jsx';
 import { ProjectsViewV2 } from './projects.jsx';
+import { TasksSection } from './tasks.jsx';
 
 export function ManagerViews({ section, setSection }) {
   if (section === 'dashboard') return <ManagerDashboard/>;
@@ -31,6 +32,7 @@ function ManagerDashboard() {
       <Topbar title="Good morning, Aidan 👋" crumbs="Dashboard"
         actions={<button className="btn btn-primary btn-sm"><Icon name="plus" size={13}/> New</button>}/>
       <div className="app-content">
+        <TasksSection/>
         <div className="kpi-row">
           <KpiCard label="Rent collected (April)" value="$612,480" delta="+4.1%" up spark={[52,55,54,58,56,60,58,62]}/>
           <KpiCard label="Occupancy" value="92.0%" delta="+1.4 pts" up spark={[88,89,88,90,91,91,92,92]}/>
